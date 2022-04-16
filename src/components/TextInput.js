@@ -1,19 +1,22 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import WordleContext from '../context/WordleContext';
 
 export default function TextInput() {
-  const { chances: { setAttempt, attempt } } = useContext(WordleContext);
+  const { 
+    chances: { attemptNumber, attempts, setAttempts }
+  } = useContext(WordleContext);
 
   const handleValidateInput = ({ target: { value }}) => {
-    if (value.length === 5) {
-      setAttempt([{ guess: value, ...attempt }])
-    }
+    setAttempts([{ ...attempts[0], [`attempt${attemptNumber}`]: value }])
   }
   return (
     <div>
       <label>
         Digite a palavra aqui
-        <input type="text" onChange={ handleValidateInput } />
+        <input 
+          type="text" 
+          onChange={ handleValidateInput }
+        />
       </label>
     </div>
   )
