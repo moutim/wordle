@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import WordleProvider from './context/WordleProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <WordleProvider>
+      <App />
+    </WordleProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
