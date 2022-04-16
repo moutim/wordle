@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import WordleContext from '../context/WordleContext';
 import TableRow from './TableRow';
 
 export default function Table() {
+  const { chances: { attempt } } = useContext(WordleContext);
   return (
     <div>
-      <TableRow />
-      <TableRow />
-      <TableRow />
-      <TableRow />
-      <TableRow />
-      <TableRow />
+      {
+        attempt.map((guess) => (
+          <TableRow />
+        ))
+      }
     </div>
   )
 }
