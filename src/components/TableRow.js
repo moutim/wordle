@@ -1,13 +1,22 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function TableRow() {
+export default function TableRow({ guess }) {
   return (
     <div>
-      <div> <span>W</span> </div>
-      <div> <span>o</span> </div>
-      <div> <span>r</span> </div>
-      <div> <span>d</span> </div>
-      <div> <span>l</span> </div>
+      {
+        guess.map(({ letter }) => (
+          <div> <span> { letter } </span> </div>
+        ))
+      }
     </div>
   )
 }
+
+TableRow.propTypes = {
+  guess: PropTypes.arrayOf(PropTypes.string),
+};
+
+TableRow.defaultProps = {
+  guess: ['', '', '', '', '']
+};

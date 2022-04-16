@@ -7,9 +7,10 @@ export default function Table() {
   return (
     <div>
       {
-        attempt.map((guess) => (
-          <TableRow />
-        ))
+        attempt.map((guess, index) => (
+          <TableRow key={ index } />
+        )
+        )
       }
     </div>
   )
