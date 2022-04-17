@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import wordlist from '../data/wordlist';
 import WordleContext from './WordleContext';
 
 export default function WordleProvider({ children }) {
+  const randomNumber = Math.floor(Math.random() * wordlist.length);
+  const [word] = useState(wordlist[randomNumber]);
   const [attemptNumber, setAttemptNumber] = useState(1);
   const [attempts, setAttempts] = useState([
     {
@@ -15,6 +18,7 @@ export default function WordleProvider({ children }) {
   ]);
 
   const context = {
+    word,
     chances: {
       attemptNumber,
       setAttemptNumber,
