@@ -7,3 +7,19 @@
 .containerLetters {
   display: flex;
 }
+
+.wordIsCorrect {
+  background-color: green;
+}
+
+.letterIsInTheRightPlace {
+  background-color: green;
+}
+
+.letterExistInWord {
+  background-color: yellow;
+}
+
+.letterNotExistInWord {
+  background-color: gray;
+}
