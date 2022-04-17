@@ -6,7 +6,7 @@ export default function ButtonSendWord() {
   const [isButtonDisabled, setButtonDisabled] = useState(true);
   const { 
     chances: { attemptNumber, attempts, setAttemptNumber },
-    verifications: { setVerifyWord },
+    verifications: { verifyAttempt, setVerifyAttempt },
   } = useContext(WordleContext);
   const currentGuess = attempts[0][`attempt${attemptNumber}`];
 
@@ -25,7 +25,7 @@ export default function ButtonSendWord() {
     );
     if (doesWordExist) {
       setAttemptNumber(attemptNumber + 1);
-      setVerifyWord(true);
+      setVerifyAttempt({ ...verifyAttempt, [`attempt${attemptNumber}`]: true });
     }
   }
 
