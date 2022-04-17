@@ -6,6 +6,8 @@ export default function WordleProvider({ children }) {
   const randomNumber = Math.floor(Math.random() * wordlist.length);
   const [word] = useState(wordlist[randomNumber]);
   const [attemptNumber, setAttemptNumber] = useState(1);
+  const [playerWon, setPlayerWon] = useState(false);
+  const [playerLost, setPlayerLost] = useState(false);
   const [verifyAttempt, setVerifyAttempt] = useState({
       attempt1: false,
       attempt2: false,
@@ -27,6 +29,12 @@ export default function WordleProvider({ children }) {
 
   const context = {
     word,
+    results: {
+      playerWon,
+      setPlayerWon,
+      playerLost,
+      setPlayerLost,
+    },
     verifications: {
       verifyAttempt,
       setVerifyAttempt,
