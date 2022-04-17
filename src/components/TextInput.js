@@ -1,5 +1,6 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState } from 'react';
 import WordleContext from '../context/WordleContext';
+import wordlist from '../data/wordlist';
 
 export default function TextInput() {
   const [isButtonDisabled, setButtonDisabled] = useState(true);
@@ -17,9 +18,16 @@ export default function TextInput() {
       setAttempts([{ ...attempts[0], [`attempt${attemptNumber}`]: value }]);
       setButtonDisabled(true);
     } 
-  }
+  };
 
-  const handleSendWord = () => setAttemptNumber(attemptNumber + 1);
+  const handleSendWord = () => {
+    const doesWordExist = wordlist.some(
+      (word) => word.toLowerCase() === attempts[0][`attempt${attemptNumber}`].toLowerCase()
+    );
+    if (doesWordExist) {
+      setAttemptNumber(attemptNumber + 1);
+    }
+  } 
 
   return (
     <div>
