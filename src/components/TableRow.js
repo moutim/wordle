@@ -16,5 +16,5 @@ export default function TableRow({ guess }) {
 }
 
 TableRow.propTypes = {
-  guess: PropTypes.string.isRequired,
+  guess: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
