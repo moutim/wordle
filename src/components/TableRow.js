@@ -5,6 +5,7 @@ import WordleContext from '../context/WordleContext';
 
 export default function TableRow({ guess, verify }) {
   const { word } = useContext(WordleContext);
+
   console.log(word);
   const verifyLetter = (position) => {
     const arrayWord = word.split('');
@@ -21,6 +22,7 @@ export default function TableRow({ guess, verify }) {
     if(letterExistInWord) return 'boxLetter letterExistInWord';
     return 'boxLetter letterNotExistInWord';
   }
+
   return (
     <div className="containerLetters">
       <div className={ verify ? verifyLetter(0) : 'boxLetter'} > <span> { guess[0] } </span> </div>
