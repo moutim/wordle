@@ -5,7 +5,7 @@ export default function TextInput() {
   const { 
     chances: { attemptNumber, attempts, setAttempts }
   } = useContext(WordleContext);
-  const currentAttempt = attempts[0][`attempt${attemptNumber}`];
+  const currentGuess = attempts[0][`attempt${attemptNumber}`];
 
   const handleValidateInput = ({ target: { value }}) => {
     if (value.length === 5) {
@@ -24,7 +24,7 @@ export default function TextInput() {
         <input 
           type="text" 
           onChange={ handleValidateInput }
-          value={ currentAttempt }
+          value={ currentGuess }
         />
       </label>
     </div>
