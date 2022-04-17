@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './TableRow.css';
 
 export default function TableRow({ guess }) {
-  console.log(guess);
   return (
     <div className="containerLetters">
       <div className="boxLetter"> <span> { guess[0] } </span> </div>
