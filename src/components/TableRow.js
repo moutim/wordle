@@ -4,7 +4,10 @@ import './TableRow.css';
 import WordleContext from '../context/WordleContext';
 
 export default function TableRow({ guess, verify }) {
-  const { word } = useContext(WordleContext);
+  const { 
+    word,
+    results: { setPlayerWon },
+  } = useContext(WordleContext);
 
   console.log(word);
   const verifyLetter = (position) => {
@@ -17,7 +20,10 @@ export default function TableRow({ guess, verify }) {
       (letter) => letter.toLowerCase() === guess[position].toLowerCase()
     );
     
-    if(wordIsCorrect) return 'boxLetter wordIsCorrect';
+    if(wordIsCorrect) {
+      setPlayerWon(true);
+      return 'boxLetter wordIsCorrect';
+    } 
     if(letterIsInTheRightPlace) return 'boxLetter letterIsInTheRightPlace';
     if(letterExistInWord) return 'boxLetter letterExistInWord';
     return 'boxLetter letterNotExistInWord';
