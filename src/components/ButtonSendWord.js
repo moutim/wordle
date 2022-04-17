@@ -4,7 +4,10 @@ import wordlist from '../data/wordlist';
 
 export default function ButtonSendWord() {
   const [isButtonDisabled, setButtonDisabled] = useState(true);
-  const { chances: { attemptNumber, attempts, setAttemptNumber } } = useContext(WordleContext);
+  const { 
+    chances: { attemptNumber, attempts, setAttemptNumber },
+    verifications: { setVerifyWord },
+  } = useContext(WordleContext);
   const currentGuess = attempts[0][`attempt${attemptNumber}`];
 
   useEffect(() => {
@@ -22,6 +25,7 @@ export default function ButtonSendWord() {
     );
     if (doesWordExist) {
       setAttemptNumber(attemptNumber + 1);
+      setVerifyWord(true);
     }
   }
 
