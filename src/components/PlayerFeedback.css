@@ -1,3 +1,7 @@
 .playerWon h2 {
   color: green;
 }
+
+.playerWon h2 {
+  color: red;
+}

@@ -23,10 +23,10 @@ export default function ButtonSendWord() {
     const doesWordExist = wordlist.some(
       (word) => word.toLowerCase() === attempts[0][`attempt${attemptNumber}`].toLowerCase()
     );
-    if (doesWordExist) {
+    if (doesWordExist && attemptNumber < 6) {
       setAttemptNumber(attemptNumber + 1);
       setVerifyAttempt({ ...verifyAttempt, [`attempt${attemptNumber}`]: true });
-    }
+    } else setVerifyAttempt({ ...verifyAttempt, [`attempt${attemptNumber}`]: true });
   }
 
   return (

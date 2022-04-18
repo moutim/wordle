@@ -6,7 +6,8 @@ import WordleContext from '../context/WordleContext';
 export default function TableRow({ guess, verify }) {
   const { 
     word,
-    results: { setPlayerWon },
+    results: { setPlayerWon, setPlayerLost },
+    verifications: { verifyAttempt },
   } = useContext(WordleContext);
 
   console.log(word);
@@ -26,6 +27,10 @@ export default function TableRow({ guess, verify }) {
     } 
     if(letterIsInTheRightPlace) return 'boxLetter letterIsInTheRightPlace';
     if(letterExistInWord) return 'boxLetter letterExistInWord';
+    if(verifyAttempt.attempt6 && !wordIsCorrect) {
+      setPlayerLost(true);
+      return 'boxLetter';
+    } 
     return 'boxLetter letterNotExistInWord';
   }
 
