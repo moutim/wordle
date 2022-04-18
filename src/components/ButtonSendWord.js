@@ -4,7 +4,7 @@ import wordlist from '../data/wordlist';
 
 export default function ButtonSendWord() {
   const [isButtonDisabled, setButtonDisabled] = useState(true);
-  const { 
+  const {
     chances: { attemptNumber, attempts, setAttemptNumber },
     verifications: { verifyAttempt, setVerifyAttempt },
   } = useContext(WordleContext);
@@ -34,7 +34,8 @@ export default function ButtonSendWord() {
       type="button" 
       onClick={ handleSendWord }
       disabled={ isButtonDisabled }
-    >Enviar
+    >
+      Enviar
     </button>
   )
 }

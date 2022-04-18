@@ -1,26 +1,38 @@
 .boxLetter {
-  margin: 5px;
-  padding: 10px;
-  border: 1px solid black;
+  align-items: center;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  display: flex;
+  font-size: 30px;
+  font-weight: bold;
+  height: 55px;
+  justify-content: center;
+  margin: 3px;
   text-transform: uppercase;
+  transition: .5s;
+  width: 55px;
 }
 
 .containerLetters {
   display: flex;
+  justify-content: center;
 }
 
 .wordIsCorrect {
-  background-color: green;
+  background-color: #38b000;
 }
 
 .letterIsInTheRightPlace {
-  background-color: green;
+  background-color: #38b000;
 }
 
 .letterExistInWord {
-  background-color: yellow;
+  background-color: #ffc300;
 }
 
 .letterNotExistInWord {
-  background-color: gray;
+  background-color: #660708;
+}
+
+.letterExistInWord, .letterNotExistInWord, .letterIsInTheRightPlace, .wordIsCorrect {
+  color: white;
 }
