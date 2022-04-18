@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import WordleContext from '../context/WordleContext';
 import wordlist from '../data/wordlist';
+import './ButtonSendWord.css';
 
 export default function ButtonSendWord() {
   const [isButtonDisabled, setButtonDisabled] = useState(true);
@@ -30,7 +31,8 @@ export default function ButtonSendWord() {
   }
 
   return (
-    <button 
+    <button
+      className="buttonSendWord"
       type="button" 
       onClick={ handleSendWord }
       disabled={ isButtonDisabled }

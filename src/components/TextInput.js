@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import WordleContext from '../context/WordleContext';
+import './TextInput.css';
 
 export default function TextInput() {
   const { 
@@ -18,15 +19,14 @@ export default function TextInput() {
   
 
   return (
-    <div>
-      <label>
-        Digite a palavra aqui
-        <input 
-          type="text" 
-          onChange={ handleValidateInput }
-          value={ currentGuess }
-        />
-      </label>
+    <div className="containerInput">
+      <input
+        autoFocus
+        placeholder="Digite aqui seu palpite"
+        type="text" 
+        onChange={ handleValidateInput }
+        value={ currentGuess }
+      />
     </div>
   )
 }
