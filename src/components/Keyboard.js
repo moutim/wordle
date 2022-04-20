@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import WordleContext from '../context/WordleContext';
-import { row1, row2, row3 } from '../data/keyboardLetters';
+import { row1, row2, row3, keyboardLetters } from '../data/keyboardLetters';
 import wordlist from '../data/wordlist';
 
 
@@ -40,52 +40,29 @@ export default function Keyboard() {
         [`attempt${attemptNumber}`]: `${currGuess}${key}`
       }]);
     }
-    else console.log('ll');
   }
 
   return (
     <div>
-      <div className="keyboardRow1">
-        {
-          row1.map((letter) => (
-            <button 
-              value={ letter }
-              type="button"
-              // onClick={ handleKeyboard }
-              autoFocus
-              onKeyDown={ handleKeyPress }
-            >
-              { letter }
-            </button>
-          ))
-        }
-      </div>
-      <div className="keyboardRow2">
-        {
-          row2.map((letter) => (
-            <button 
-              value={ letter }
-              type="button"
-              // onClick={ handleKeyboard }
-            >
-              { letter }
-            </button>
-          ))
-        }
-      </div>
-      <div className="keyboardRow3">
-        {
-          row3.map((letter) => (
-            <button 
-              value={ letter }
-              type="button"
-              // onClick={ handleKeyboard }
-            >
-              { letter }
-            </button>
-          ))
-        }
-      </div>
+      {
+        keyboardLetters.map((row, index) => (
+          <div key={ index } className="keyboard">
+            {
+              row.map((letter) => (
+                <button 
+                  value={ letter }
+                  type="button"
+                  autoFocus
+                  onKeyDown={ handleKeyPress }
+                >
+                  { letter }
+                </button>
+              ))
+            }
+          </div>
+        )
+        )
+      }
     </div>
   )
 }
