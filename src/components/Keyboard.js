@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import WordleContext from '../context/WordleContext';
 import { row1, row2, row3, keyboardLetters } from '../data/keyboardLetters';
 import wordlist from '../data/wordlist';
+import './Keyboard.css';
 
 
 export default function Keyboard() {
@@ -43,7 +44,7 @@ export default function Keyboard() {
   }
 
   return (
-    <div>
+    <div className="containerKeyboard">
       {
         keyboardLetters.map((row, index) => (
           <div key={ index } className="keyboard">
