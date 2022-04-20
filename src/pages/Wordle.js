@@ -7,6 +7,7 @@ import PlayerWon from '../components/PlayerWon';
 import PlayerLost from '../components/PlayerLost';
 import Header from '../components/Header';
 import './Wordle.css';
+import Keyboard from '../components/Keyboard';
 
 export default function Wordle() {
   const { results: { playerWon, playerLost } } = useContext(WordleContext);
@@ -21,6 +22,7 @@ export default function Wordle() {
           <TextInput />
           <ButtonSendWord />
         </div>
+        <Keyboard />
       </main>
     </>
   )
