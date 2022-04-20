@@ -9,11 +9,9 @@ export default function TextInput() {
   const currentGuess = attempts[0][`attempt${attemptNumber}`];
 
   const handleValidateInput = ({ target: { value }}) => {
-    if (value.length === 5) {
+    if (value.length <= 5) {
       setAttempts([{ ...attempts[0], [`attempt${attemptNumber}`]: value }]);
-    } else {
-      setAttempts([{ ...attempts[0], [`attempt${attemptNumber}`]: value }]);
-    } 
+    }
   };
 
   
@@ -21,7 +19,7 @@ export default function TextInput() {
   return (
     <div className="containerInput">
       <input
-        autoFocus
+        // autoFocus
         placeholder="Digite aqui seu palpite"
         type="text" 
         onChange={ handleValidateInput }

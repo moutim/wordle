@@ -6,6 +6,7 @@ import WordleContext from '../context/WordleContext';
 export default function TableRow({ guess, verify }) {
   const { 
     word,
+    chances: { attempts },
     results: { setPlayerWon, setPlayerLost },
     verifications: { verifyAttempt },
   } = useContext(WordleContext);
@@ -21,13 +22,15 @@ export default function TableRow({ guess, verify }) {
       (letter) => letter.toLowerCase() === guess[position].toLowerCase()
     );
     
+    const playerLost = verifyAttempt.attempt6 && attempts.attempt6 !== word;
+
     if(wordIsCorrect) {
       setPlayerWon(true);
       return 'boxLetter wordIsCorrect';
-    } 
+    }
     if(letterIsInTheRightPlace) return 'boxLetter letterIsInTheRightPlace';
     if(letterExistInWord) return 'boxLetter letterExistInWord';
-    if(verifyAttempt.attempt6 && !wordIsCorrect) {
+    if(playerLost) {
       setPlayerLost(true);
       return 'boxLetter';
     } 
