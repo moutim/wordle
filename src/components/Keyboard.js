@@ -50,7 +50,8 @@ export default function Keyboard() {
           <div key={ index } className="keyboard">
             {
               row.map((letter) => (
-                <button 
+                <button
+                  key={ letter }
                   value={ letter }
                   type="button"
                   autoFocus
