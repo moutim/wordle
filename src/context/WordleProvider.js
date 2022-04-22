@@ -9,12 +9,12 @@ export default function WordleProvider({ children }) {
   const [playerWon, setPlayerWon] = useState(false);
   const [playerLost, setPlayerLost] = useState(false);
   const [verifyAttempt, setVerifyAttempt] = useState({
-      attempt1: false,
-      attempt2: false,
-      attempt3: false,
-      attempt4: false,
-      attempt5: false,
-      attempt6: false,
+    attempt1: false,
+    attempt2: false,
+    attempt3: false,
+    attempt4: false,
+    attempt5: false,
+    attempt6: false,
   });
   const [attempts, setAttempts] = useState([
     {
@@ -26,9 +26,20 @@ export default function WordleProvider({ children }) {
       attempt6: '',
     }
   ]);
+  const [lettersThatNotExist, setLettersNotExist] = useState([]);
+  const [lettersThatExist, setLettersExist] = useState([]);
+  const [lettersInRightPlace, setLettersRight] = useState([]);
 
   const context = {
     word,
+    keyboard: {
+      lettersThatNotExist,
+      setLettersNotExist,
+      lettersThatExist,
+      setLettersExist,
+      lettersInRightPlace,
+      setLettersRight,
+    },
     results: {
       playerWon,
       setPlayerWon,

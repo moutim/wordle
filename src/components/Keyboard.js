@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import WordleContext from '../context/WordleContext';
 import { row1, row2, row3, keyboardLetters } from '../data/keyboardLetters';
 import wordlist from '../data/wordlist';
@@ -6,10 +6,40 @@ import './Keyboard.css';
 
 
 export default function Keyboard() {
-  const { 
+  const {
+    word,
     chances: { attemptNumber, attempts, setAttempts, setAttemptNumber },
     verifications: { verifyAttempt, setVerifyAttempt },
+    keyboard,
   } = useContext(WordleContext);
+  
+
+  useEffect(() => {
+    const colorKeyboard = () => {
+      const currVerifyAttempt = verifyAttempt[`attempt${attemptNumber - 1}`];
+      const currGuess = attempts[0][`attempt${attemptNumber - 1}`];
+      if (currVerifyAttempt) {
+        const arrGuess = currGuess.toLowerCase().split('');
+        const arrWord = word.toLowerCase().split('');
+        const lettersNotExist = arrGuess.filter((letter, index) => {
+          const doesWordContainLetter = arrWord.includes(letter);
+          return ( doesWordContainLetter ? false : true );
+        });
+        const lettersRight = arrWord.filter((letter, index) => letter === arrGuess[index]);
+        const lettersExistInWord = arrGuess.filter((letter, index) => {
+          const doesWordContainLetter = arrWord.includes(letter);
+          return ( doesWordContainLetter ? true : false );
+        });
+        const arrRight = [...keyboard.lettersInRightPlace, ...lettersRight];
+        const arrNotExist = [...keyboard.lettersThatNotExist, ...lettersNotExist];
+        const arrExist = [...keyboard.lettersThatExist, ...lettersExistInWord];
+        keyboard.setLettersRight(arrRight.filter((letter, index) => arrRight.indexOf(letter) === index));
+        keyboard.setLettersNotExist(arrNotExist.filter((letter, index) => arrNotExist.indexOf(letter) === index));
+        keyboard.setLettersExist(arrExist.filter((letter, index) => arrExist.indexOf(letter) === index));
+      }
+    };
+    colorKeyboard();
+  }, [attemptNumber, attempts, verifyAttempt, word]);
 
   const handleSendWord = () => {
     const doesWordExist = wordlist.some(
@@ -43,6 +73,15 @@ export default function Keyboard() {
     }
   }
 
+  const handlePaintKeyboard = (letter) => {
+    const { lettersThatNotExist, lettersThatExist, lettersInRightPlace } = keyboard;
+    if (lettersThatNotExist.length > 0 || lettersThatExist.length > 0 || lettersInRightPlace.length > 0) {
+      if (lettersThatNotExist.includes(letter.toLowerCase())) return 'letterNotExistInWord';
+      if (lettersInRightPlace.includes(letter.toLowerCase())) return 'letterIsInTheRightPlace';
+      if (lettersThatExist.includes(letter.toLowerCase())) return 'letterExistInWord';
+    }
+  }
+
   return (
     <div className="containerKeyboard">
       {
@@ -51,6 +90,7 @@ export default function Keyboard() {
             {
               row.map((letter) => (
                 <button
+                  className={ handlePaintKeyboard(letter) }
                   key={ letter }
                   value={ letter }
                   type="button"
