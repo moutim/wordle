@@ -22,17 +22,18 @@
 }
 
 .letterIsInTheRightPlace {
-  background-color: #38b000;
+  background-color: #38b000 !important;
 }
 
 .letterExistInWord {
-  background-color: #ffc300;
+  background-color: #ffc300 !important;
 }
 
 .letterNotExistInWord {
-  background-color: #660708;
+  background-color: #660708 !important;
 }
 
 .letterExistInWord, .letterNotExistInWord, .letterIsInTheRightPlace, .wordIsCorrect {
   color: white;
+  border: 2px solid rgba(0, 0, 0, 0.2);
 }
