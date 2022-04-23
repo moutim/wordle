@@ -29,9 +29,14 @@ export default function WordleProvider({ children }) {
   const [lettersThatNotExist, setLettersNotExist] = useState([]);
   const [lettersThatExist, setLettersExist] = useState([]);
   const [lettersInRightPlace, setLettersRight] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
 
   const context = {
     word,
+    lighting: {
+      darkMode,
+      setDarkMode,
+    },
     keyboard: {
       lettersThatNotExist,
       setLettersNotExist,
