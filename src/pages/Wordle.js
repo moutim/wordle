@@ -10,9 +10,9 @@ import './Wordle.css';
 import Keyboard from '../components/Keyboard';
 
 export default function Wordle() {
-  const { results: { playerWon, playerLost } } = useContext(WordleContext);
+  const { results: { playerWon, playerLost }, lighting: { darkMode } } = useContext(WordleContext);
   return (
-    <>
+    <div className={ darkMode ? 'darkmode' : 'darkmodeLeave'}>
       <Header />
       <main>
         { playerWon && <PlayerWon /> }
@@ -24,6 +24,6 @@ export default function Wordle() {
         </div>
         <Keyboard />
       </main>
-    </>
+    </div>
   )
 }

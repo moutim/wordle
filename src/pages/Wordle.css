@@ -1,3 +1,13 @@
+.darkmode {
+  background-color: rgba(0, 0, 0, 0.95);
+  color: white;
+  transition: .5s ease-out;
+}
+
+.darkmodeLeave {
+  transition: .5s ease-out;
+}
+
 .containerInteractive {
   display: flex;
   justify-content: center;
