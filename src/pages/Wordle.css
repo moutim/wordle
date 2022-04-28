@@ -1,5 +1,17 @@
 .containerInteractive {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  margin-top: 15px;
+}
+
+.containerInteractive button {
+  font-family: 'Lexipa', sans-serif;
+  font-weight: bold;
+  border: none;
+  border-end-end-radius: 5px;
+  border-start-end-radius: 5px;
+  background-color: #38b000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  color: white;
 }
