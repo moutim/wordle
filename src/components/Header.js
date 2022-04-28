@@ -6,6 +6,10 @@ import './Header.css';
 
 export default function Header() {
   const { lighting: { darkMode, setDarkMode } } = useContext(WordleContext);
+  const handleDarkmode = () => {
+    setDarkMode(!darkMode);
+    localStorage.setItem('darkmode', !darkMode);
+  }
   return (
     <header>
       <img 
@@ -14,7 +18,7 @@ export default function Header() {
       />
       <h1>WORD<span>AY</span></h1>
       <DarkModeToggle
-        onChange={ () => setDarkMode(!darkMode) }
+        onChange={ handleDarkmode }
         checked={ darkMode }
         size={ 50 }
         speed={ 1.0 }

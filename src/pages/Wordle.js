@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import ButtonSendWord from '../components/ButtonSendWord';
 import Table from '../components/Table';
 import TextInput from '../components/TextInput';
@@ -10,7 +10,20 @@ import './Wordle.css';
 import Keyboard from '../components/Keyboard';
 
 export default function Wordle() {
-  const { results: { playerWon, playerLost }, lighting: { darkMode } } = useContext(WordleContext);
+  const { 
+    results: { playerWon, playerLost },
+    lighting: { darkMode, setDarkMode }
+  } = useContext(WordleContext);
+
+  useEffect(() => {
+    const verifyDarkmode = () => {
+      const storageDarkmode = JSON.parse(localStorage.getItem('darkmode')); 
+      if (storageDarkmode === true) setDarkMode(true)
+      else setDarkMode(false);
+    };
+    verifyDarkmode();
+  }, [setDarkMode]);
+
   return (
     <div className={ darkMode ? 'darkmode' : 'darkmodeLeave'}>
       <Header />
