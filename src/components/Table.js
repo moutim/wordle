@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import WordleContext from '../context/WordleContext';
 import TableRow from './TableRow';
+import './Table.css';
 
 export default function Table() {
   const { chances: { attempts  }, verifications: { verifyAttempt } } = useContext(WordleContext);
@@ -8,7 +9,7 @@ export default function Table() {
     <>
       {
         attempts.map((attempt) => (
-          <div key="attempts">
+          <div className="containerAttempts" key="attempts">
             <TableRow verify={ verifyAttempt.attempt1 } guess={ attempt.attempt1.split('') } />
             <TableRow verify={ verifyAttempt.attempt2 } guess={ attempt.attempt2.split('') } />
             <TableRow verify={ verifyAttempt.attempt3 } guess={ attempt.attempt3.split('') } />
