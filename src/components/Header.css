@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 35px;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+header h1 {
+  background: -webkit-linear-gradient(0deg, #660708 8%, rgba(56,176,0,0.88) 29%, rgba(57,170,0,0.89) 54%, #ffc300 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* header h1 span {
+  color: yellow;
+} */
+
+header img {
+  max-height: 100%;
+}
