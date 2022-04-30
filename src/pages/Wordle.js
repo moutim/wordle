@@ -28,8 +28,8 @@ export default function Wordle() {
 
   return (
     <div className={ darkMode ? 'darkmode' : 'darkmodeLeave'}>
-      <Header />
       { showHowToPlay && <HowToPlay /> }
+      <Header />
       <main>
         { playerWon && <PlayerWon /> }
         { playerLost && <PlayerLost /> }

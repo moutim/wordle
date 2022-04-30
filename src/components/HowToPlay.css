@@ -1,0 +1,10 @@
+.containerHowToPlay {
+  background-color: black;
+  position: absolute;
+  z-index: 1;
+  height: 100vh;
+}
+
+.containerHowToPlay h2, p {
+  text-align: center;
+}

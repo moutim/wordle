@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import './HowToPlay.css';
 
 export default function HowToPlay() {
   return (
-    <div>
+    <div className="containerHowToPlay">
       <h2>Como jogar?</h2>
       <p>
         A cada novo jogo, uma nova palavra aparecerá no WORDAY para você adivinhar.
