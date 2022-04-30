@@ -8,3 +8,19 @@
 .containerHowToPlay h2, p {
   text-align: center;
 }
+
+.containerClose {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 10px 0 0;
+}
+
+.containerHowToPlay button {
+  padding: 2px 15px;
+  background-color: red;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}

@@ -7,7 +7,12 @@ export default function HowToPlay() {
 
   return (
     <div className="containerHowToPlay">
-      <button type="button" onClick={ () => setShowHowToPlay(false) }>X</button>
+      <div className="containerClose">
+        <button
+          type="button"
+          onClick={ () => setShowHowToPlay(false)
+        }>X</button>
+      </div>
       <h2>Como jogar?</h2>
       <p>
         A cada novo jogo, uma nova palavra aparecerá no WORDAY para você adivinhar.
