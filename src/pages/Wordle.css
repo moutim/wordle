@@ -2,6 +2,7 @@
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   transition: .8s ease-out;
+  height: 100vh;
 }
 
 .darkmode .boxLetter {
@@ -46,12 +47,40 @@
 }
 
 main {
+  height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .containerWords {
   align-self: center;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+  header {
+    justify-content: space-evenly;
+  }
+
+  .boxLetter {
+    width: 70px;
+    height: 70px;
+  }
+
+  .keyboard button {
+    padding: 20px 20px !important;
+  }
+
+  h1 {
+    font-size: 35px;
+  }
+
+  .containerHowToPlay {
+    padding: 0 35%;
+  }
 }

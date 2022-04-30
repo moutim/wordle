@@ -21,7 +21,7 @@ export default function Header() {
       <DarkModeToggle
         onChange={ handleDarkmode }
         checked={ darkMode }
-        size={ 50 }
+        size={ 60 }
         speed={ 1.0 }
       />
     </header>
