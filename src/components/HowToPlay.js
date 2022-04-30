@@ -10,9 +10,11 @@ export default function HowToPlay() {
         Acentos e cedilha são ignorados, tanto nas tentativas, quanto na resposta.
         Após chutar, as letras mudarão para indicar o quão perto você está da resposta.
       </p>
-      <p>Se uma letra ficar verde, ela está presente na palavra e na posição correta.</p>
-      <p>Se uma letra ficar amarela, ela está presente na palavra, mas na posição errada.</p>
-      <p>Se uma letra ficar vermelha, ela NÃO está na palavra.</p>
+      <ul>
+        <li>Se uma letra ficar verde, ela está presente na palavra e na posição correta.</li>
+        <li>Se uma letra ficar amarela, ela está presente na palavra, mas na posição errada.</li>
+        <li>Se uma letra ficar vermelha, ela NÃO está na palavra.</li>
+      </ul>
       <div className="containerLetters">
         <div className="boxLetter letterIsInTheRightPlace">T</div>
         <div className="boxLetter">E</div>

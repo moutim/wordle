@@ -8,11 +8,13 @@ import PlayerLost from '../components/PlayerLost';
 import Header from '../components/Header';
 import './Wordle.css';
 import Keyboard from '../components/Keyboard';
+import HowToPlay from '../components/HowToPlay';
 
 export default function Wordle() {
   const { 
     results: { playerWon, playerLost },
-    lighting: { darkMode, setDarkMode }
+    lighting: { darkMode, setDarkMode },
+    instructions: { showHowToPlay },
   } = useContext(WordleContext);
 
   useEffect(() => {
@@ -27,6 +29,7 @@ export default function Wordle() {
   return (
     <div className={ darkMode ? 'darkmode' : 'darkmodeLeave'}>
       <Header />
+      { showHowToPlay && <HowToPlay /> }
       <main>
         { playerWon && <PlayerWon /> }
         { playerLost && <PlayerLost /> }

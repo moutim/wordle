@@ -1,7 +1,5 @@
 .darkmode {
-  /* background-color: rgba(0, 0, 0, 0.95); */
-  /* background-color: rgb(59, 53, 53); */
-  background-color: #4C4347;
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
   transition: .8s ease-out;
 }

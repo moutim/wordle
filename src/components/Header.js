@@ -5,7 +5,7 @@ import questionMark from '../images/questionMark.png';
 import './Header.css';
 
 export default function Header() {
-  const { lighting: { darkMode, setDarkMode } } = useContext(WordleContext);
+  const { lighting: { darkMode, setDarkMode }, instructions: { setShowHowToPlay } } = useContext(WordleContext);
   const handleDarkmode = () => {
     setDarkMode(!darkMode);
     localStorage.setItem('darkmode', !darkMode);
@@ -14,7 +14,8 @@ export default function Header() {
     <header>
       <img 
         src={ questionMark } 
-        alt="Ilustração de uma lâmpada com um ponto de interrogação dentro." 
+        alt="Ilustração de uma lâmpada com um ponto de interrogação dentro."
+        onClick={ () => setShowHowToPlay(true) }
       />
       <h1>WORD<span>AY</span></h1>
       <DarkModeToggle

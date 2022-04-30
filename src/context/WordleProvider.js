@@ -30,9 +30,14 @@ export default function WordleProvider({ children }) {
   const [lettersThatExist, setLettersExist] = useState([]);
   const [lettersInRightPlace, setLettersRight] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
+  const [showHowToPlay, setShowHowToPlay] = useState(false);
 
   const context = {
     word,
+    instructions: {
+      showHowToPlay,
+      setShowHowToPlay
+    },
     lighting: {
       darkMode,
       setDarkMode,
