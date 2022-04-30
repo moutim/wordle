@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import WordleContext from '../context/WordleContext';
 import './HowToPlay.css';
 
 export default function HowToPlay() {
+  const { instructions: { setShowHowToPlay } } = useContext(WordleContext);
+
   return (
     <div className="containerHowToPlay">
+      <button type="button" onClick={ () => setShowHowToPlay(false) }>X</button>
       <h2>Como jogar?</h2>
       <p>
         A cada novo jogo, uma nova palavra aparecerá no WORDAY para você adivinhar.
