@@ -11,12 +11,15 @@ export default function PlayerWon() {
     return 'Foi por pouco!'
   }
 
+  const handleNewGame = () => window.location.reload();
+
   return (
     <div className="playerWon">
       <h2>Você acertou!</h2>
-      <p>{`A palavra da vez era ${word}`}</p>
+      <p>A palavra da vez era <span className="feedbackWord">{ word }</span> </p>
       <p>{`Você usou ${attemptNumber - 1} de 6 tentativas`}</p>
       <p>{ feedbackMessages() }</p>
+      <button onClick={ handleNewGame } className="buttonNewGame">Jogar Novo Jogo</button>
     </div>
   )
 }

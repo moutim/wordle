@@ -5,3 +5,29 @@
 .playerLost h2 {
   color: red;
 }
+
+.playerLost, .playerWon {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  background-color: black;
+}
+
+.feedbackWord {
+  text-decoration: underline;
+}
+
+.buttonNewGame {
+  border: none;
+  background-color: #4895ef;
+  color: white;
+  font-weight: bold;
+  padding: 10px 50px;
+  border-radius: 20px;
+  font-size: 20px;
+  text-decoration: underline;
+}
