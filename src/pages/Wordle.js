@@ -33,10 +33,12 @@ export default function Wordle() {
       <main>
         { playerWon && <PlayerWon /> }
         { playerLost && <PlayerLost /> }
-        <Table />
-        <div className="containerInteractive">
-          <TextInput />
-          <ButtonSendWord />
+        <div className="containerWords">
+          <Table />
+          <div className="containerInteractive">
+            <TextInput />
+            <ButtonSendWord />
+          </div>
         </div>
         <Keyboard />
       </main>
