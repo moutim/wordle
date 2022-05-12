@@ -51,29 +51,33 @@ export default function Keyboard() {
     } else setVerifyAttempt({ ...verifyAttempt, [`attempt${attemptNumber}`]: true });
   }
 
-  const handleKeyPress = ({ key }) => {
+  const handleKeyPress = ({ target: { value } }) => {
+    console.log(value);
     const currGuess = attempts[0][`attempt${attemptNumber}`];
     const letters = [...row1, ...row2, ...row3];
     const isValidKey = letters.some(
-      (letter) => letter.toLowerCase() === key.toLowerCase()
+      (letter) => letter.toLowerCase() === value.toLowerCase()
     );
-    if (key === 'Backspace') {
+    if (value === '❌') {
       setAttempts([{ 
         ...attempts[0],
         [`attempt${attemptNumber}`]: currGuess.substr(0, currGuess.length - 1)
       }]);
       return
     }
-    if (key === 'Enter' && currGuess.length === 5) return handleSendWord();
+    if (value === '✅' && currGuess.length === 5) return handleSendWord();
     if (isValidKey && currGuess.length < 5) {
       setAttempts([{ 
         ...attempts[0],
-        [`attempt${attemptNumber}`]: `${currGuess}${key}`
+        [`attempt${attemptNumber}`]: `${currGuess}${value}`
       }]);
     }
   }
 
   const handlePaintKeyboard = (letter) => {
+    if (letter === '✅') return 'Enter';
+    if (letter === '❌') return 'Backspace';
+
     const { lettersThatNotExist, lettersThatExist, lettersInRightPlace } = keyboard;
     if (lettersThatNotExist.length > 0 || lettersThatExist.length > 0 || lettersInRightPlace.length > 0) {
       if (lettersThatNotExist.includes(letter.toLowerCase())) return 'letterNotExistInWord';
@@ -94,8 +98,7 @@ export default function Keyboard() {
                   key={ letter }
                   value={ letter }
                   type="button"
-                  autoFocus
-                  onKeyDown={ handleKeyPress }
+                  onClick={ handleKeyPress }
                 >
                   { letter }
                 </button>
